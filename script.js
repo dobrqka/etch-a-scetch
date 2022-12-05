@@ -2,12 +2,15 @@
 
 const container = document.querySelector('.container');
 container.style.display = 'grid';
+container.style.boxSizing = 'border-box';
 container.style.width = '500px';
 container.style.height = '500px';
 
 // create div, add to container and do it 256 (16x16) times
 
 function setGrid () {
+    const oldDivs = document.querySelectorAll('.container div')
+    oldDivs.forEach(ofthem => ofthem.remove());
     let gridSide = prompt('Number of squares per side', '');
     if (gridSide<2) {
         alert('Please insert a number higher than 1');
@@ -15,12 +18,11 @@ function setGrid () {
         }
     else if (gridSide<100) {
         for (i=0; i<(gridSide**2); i++) {
-            container.style.gridTemplateColumns = `repeat(${gridSide}, 30px)`;
+            container.style.gridTemplateColumns = `repeat(${gridSide}, auto`;
             const newDiv = document.createElement('div');
-            newDiv.style.height = '30px';
-            newDiv.style.width = '30px';
+            newDiv.style.height = 'auto';
+            newDiv.style.width = 'auto';
             newDiv.style.boxSizing = 'border-box';
-            // newDiv.style.border = 'dotted black 1px';
             newDiv.classList.add('div-borders');
             container.appendChild(newDiv);
         }
@@ -80,3 +82,12 @@ function clearDivs () {
 }
 
 clearButton.addEventListener('click', clearDivs)
+
+
+// color choice, including a rainbow color
+
+// shading option
+
+// eraser
+
+// css to make it look cool
