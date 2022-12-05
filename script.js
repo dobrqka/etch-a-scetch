@@ -39,3 +39,14 @@ function changeColor() {
         boxes[i].addEventListener('mouseleave', (e) => {e.target.classList.remove('hover-color')})
     }
 }
+
+const clearButton = document.createElement('button');
+clearButton.textContent = 'Clear';
+document.body.appendChild(clearButton);
+
+function clearDivs () {
+    const theDivs = document.querySelectorAll('.container div');
+    theDivs.forEach (singleDiv => singleDiv.classList.remove('new-color'))
+}
+
+clearButton.addEventListener('click', clearDivs)
