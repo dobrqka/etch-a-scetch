@@ -30,7 +30,11 @@ newGrid.addEventListener('click', setGrid);
 function changeColor() {
     const boxes = document.querySelectorAll('.container div');
     for (i=0; i<boxes.length; i++) {
-        boxes[i].addEventListener('mousedown', (e) => {e.target.classList.add('new-color')})
+        boxes[i].addEventListener('mousemove', (e) => {
+            if(e.buttons == 1) {
+             e.target.classList.add('new-color')
+            }
+           });
         boxes[i].addEventListener('mouseenter', (e) => {e.target.classList.add('hover-color')})
         boxes[i].addEventListener('mouseleave', (e) => {e.target.classList.remove('hover-color')})
     }
