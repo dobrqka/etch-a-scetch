@@ -5,3 +5,7 @@
 .hover-color {
     background-color: grey;
 }
+
+.div-borders {
+    border: dotted black 1px;
+}

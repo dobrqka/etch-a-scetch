@@ -2,19 +2,33 @@
 
 const container = document.querySelector('.container');
 container.style.display = 'grid';
+container.style.width = '500px';
+container.style.height = '500px';
 
 // create div, add to container and do it 256 (16x16) times
 
 function setGrid () {
-    let gridSide = prompt('Set a grid side', '');
-    for (i=0; i<(gridSide**2); i++) {
-        container.style.gridTemplateColumns = `repeat(${gridSide}, 30px)`;
-        const newDiv = document.createElement('div');
-        newDiv.style.height = '30px';
-        newDiv.style.width = '30px';
-        newDiv.style.border = 'dotted black 1px';
-        container.appendChild(newDiv);
+    let gridSide = prompt('Number of squares per side', '');
+    if (gridSide<2) {
+        alert('Please insert a number higher than 1');
+        setGrid();
+        }
+    else if (gridSide<100) {
+        for (i=0; i<(gridSide**2); i++) {
+            container.style.gridTemplateColumns = `repeat(${gridSide}, 30px)`;
+            const newDiv = document.createElement('div');
+            newDiv.style.height = '30px';
+            newDiv.style.width = '30px';
+            newDiv.style.boxSizing = 'border-box';
+            // newDiv.style.border = 'dotted black 1px';
+            newDiv.classList.add('div-borders');
+            container.appendChild(newDiv);
+        }
     }
+    else {
+        alert('Please insert a number below 100');
+        setGrid();
+        }
     changeColor();
 }
 
@@ -32,6 +46,7 @@ function changeColor() {
     for (i=0; i<boxes.length; i++) {
         boxes[i].addEventListener('mousemove', (e) => {
             if(e.buttons == 1) {
+             e.preventDefault();
              e.target.classList.add('new-color')
             }
            });
@@ -40,13 +55,28 @@ function changeColor() {
     }
 }
 
+// button that removes the grid lines
+
+const toggleGrid = document.createElement('button');
+toggleGrid.textContent = 'Toggle Grid';
+document.body.appendChild(toggleGrid);
+
+function removeGridLines () {
+    const theDivs = document.querySelectorAll('.container div');
+    theDivs.forEach(singleDiv => singleDiv.classList.toggle('div-borders'))
+}
+
+toggleGrid.addEventListener('click', removeGridLines);
+
+// "Clear" button that deletes everything you've painted
+
 const clearButton = document.createElement('button');
 clearButton.textContent = 'Clear';
 document.body.appendChild(clearButton);
 
 function clearDivs () {
     const theDivs = document.querySelectorAll('.container div');
-    theDivs.forEach (singleDiv => singleDiv.classList.remove('new-color'))
+    theDivs.forEach(singleDiv => singleDiv.classList.remove('new-color'))
 }
 
 clearButton.addEventListener('click', clearDivs)
