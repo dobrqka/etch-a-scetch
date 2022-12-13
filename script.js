@@ -125,7 +125,7 @@ function trippyColors() {
            });
       
     }
-}
+    }
 
 const trippyColor = document.createElement('button');
 trippyColor.style.backgroundImage = 'url("images/trippy.png")';
@@ -138,17 +138,18 @@ trippyColor.addEventListener('click', trippyColors);
 // color choice
 
 function colorChoice(theColor) {
-    trippyColors = false;
     const boxes = document.querySelectorAll('.container div');
     for (i=0; i<boxes.length; i++) {
         boxes[i].addEventListener('mousemove', (e) => {
             if(e.buttons == 1) {
              e.preventDefault();
+             e.target.style.removeProperty('background-color');
              e.target.className = 'div-borders';
              e.target.classList.add(`${theColor}`);
             }
            });
          boxes[i].addEventListener('click', (e) => {
+           e.target.style.removeProperty('background-color');
            e.target.className = 'div-borders';
            e.target.classList.add(`${theColor}`);
            });
@@ -203,13 +204,13 @@ function eraseThings() {
         boxes[i].addEventListener('mousemove', (e) => {
             if(e.buttons == 1) {
              e.preventDefault();
-             e.target.className = 'div-borders';
              e.target.style.removeProperty('background-color');
+             e.target.className = 'div-borders';
             }
            });
         boxes[i].addEventListener('click', (e) => {
-             e.target.className = 'div-borders'});
              e.target.style.removeProperty('background-color');
+             e.target.className = 'div-borders'});
     }
 }
 
@@ -222,6 +223,6 @@ buttonContainer.appendChild(eraseButton);
 eraseButton.addEventListener('click', eraseThings);
 
 
-// FIX CLEAR BUTTON TO CLEAR THE TRIPPY COLORS
+// fix toggle grid button
 
 // tidy up the code
