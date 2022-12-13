@@ -125,10 +125,12 @@ function colorChoice(theColor) {
         boxes[i].addEventListener('mousemove', (e) => {
             if(e.buttons == 1) {
              e.preventDefault();
+             e.target.className = 'div-borders';
              e.target.classList.add(`${theColor}`);
             }
            });
          boxes[i].addEventListener('click', (e) => {
+           e.target.className = 'div-borders';
            e.target.classList.add(`${theColor}`);
            });
     }
@@ -198,4 +200,6 @@ eraseButton.addEventListener('click', eraseThings);
 
 
 // FIX CLEAR BUTTON TO CLEAR THE TRIPPY COLORS
+
+// set up default grid on start-up
 // tidy up the code
