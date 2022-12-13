@@ -5,6 +5,13 @@ container.style.display = 'grid';
 container.style.boxSizing = 'border-box';
 container.style.width = '500px';
 container.style.height = '500px';
+container.style.backgroundColor = '#EEEEEE';
+
+// new div container for buttons
+
+const buttonContainer = document.createElement('div');
+buttonContainer.className = 'buttons';
+document.body.appendChild(buttonContainer);
 
 // create div, add to container and do it 256 (16x16) times
 
@@ -23,7 +30,6 @@ function setGrid () {
             newDiv.style.height = 'auto';
             newDiv.style.width = 'auto';
             newDiv.style.boxSizing = 'border-box';
-            newDiv.style.backgroundColor = '#EEEEEE';
             newDiv.classList.add('div-borders');
             container.appendChild(newDiv);
         }
@@ -38,8 +44,8 @@ function setGrid () {
 // button to create a grid according to a side size selection
 
 const newGrid = document.createElement('button');
-newGrid.textContent = 'Create a grid';
-document.body.appendChild(newGrid);
+newGrid.textContent = 'New Grid';
+buttonContainer.appendChild(newGrid);
 newGrid.addEventListener('click', setGrid);
 
 // make the divs change color
@@ -56,7 +62,7 @@ function changeColor() {
         boxes[i].addEventListener('click', (e) => {
            e.target.classList.add('new-color')
         });
-        boxes[i].addEventListener('mouseenter', (e) => {e.target.classList.add('hover-color')})
+        boxes[i].addEventListener('mouseenter', (e) => {e.target.classList.add('hover-color')});
         boxes[i].addEventListener('mouseleave', (e) => {e.target.classList.remove('hover-color')})
     }
 }
@@ -65,7 +71,7 @@ function changeColor() {
 
 const toggleGrid = document.createElement('button');
 toggleGrid.textContent = 'Toggle Grid';
-document.body.appendChild(toggleGrid);
+buttonContainer.appendChild(toggleGrid);
 
 function removeGridLines () {
     const theDivs = document.querySelectorAll('.container div');
@@ -78,13 +84,12 @@ toggleGrid.addEventListener('click', removeGridLines);
 
 const clearButton = document.createElement('button');
 clearButton.textContent = 'Clear';
-document.body.appendChild(clearButton);
+buttonContainer.appendChild(clearButton);
 
 function clearDivs () {
     const theDivs = document.querySelectorAll('.container div');
     theDivs.forEach(singleDiv => singleDiv.className = 'div-borders');
-    theDivs.forEach(singleDiv => singleDiv.style.backgroundColor = '#EEEEEE');
-    theDivs.forEach(singleDiv => singleDiv.style.filter = 'brightness(100%)');
+    theDivs.forEach(singleDiv => singleDiv.style.backgroundColor = 'transparent');
 }
 
 clearButton.addEventListener('click', clearDivs)
@@ -107,7 +112,7 @@ function trippyColors() {
 
 const trippyColor = document.createElement('button');
 trippyColor.textContent = 'Trippy';
-document.body.appendChild(trippyColor);
+buttonContainer.appendChild(trippyColor);
 trippyColor.addEventListener('click', trippyColors);
 
 // color choice
@@ -127,25 +132,40 @@ function colorChoice(theColor) {
     }
 }
 
-const redButton = document.createElement('button');
-redButton.textContent = 'red';
-redButton.className = 'colorbutton'
-document.body.appendChild(redButton);
+const blackButton = document.createElement('button');
+blackButton.style.color = 'black';
+blackButton.style.backgroundColor = 'black';
+blackButton.textContent = 'black';
+blackButton.className = 'colorbutton'
+buttonContainer.appendChild(blackButton);
+
+const blueButton = document.createElement('button');
+blueButton.style.color = 'blue';
+blueButton.style.backgroundColor = 'blue';
+blueButton.textContent = 'blue';
+blueButton.className = 'colorbutton'
+buttonContainer.appendChild(blueButton);
 
 const greenButton = document.createElement('button');
 greenButton.textContent = 'green';
+greenButton.style.color = 'green';
+greenButton.style.backgroundColor = 'green';
 greenButton.className = 'colorbutton'
-document.body.appendChild(greenButton);
+buttonContainer.appendChild(greenButton);
 
-const blueButton = document.createElement('button');
-blueButton.textContent = 'blue';
-blueButton.className = 'colorbutton'
-document.body.appendChild(blueButton);
+const redButton = document.createElement('button');
+redButton.textContent = 'red';
+redButton.style.color = 'red';
+redButton.style.backgroundColor = 'red';
+redButton.className = 'colorbutton'
+buttonContainer.appendChild(redButton);
 
 const yellowButton = document.createElement('button');
+yellowButton.style.color = 'yellow';
+yellowButton.style.backgroundColor = 'yellow';
 yellowButton.textContent = 'yellow';
 yellowButton.className = 'colorbutton'
-document.body.appendChild(yellowButton);
+buttonContainer.appendChild(yellowButton);
 
 const colorButtons = document.querySelectorAll('.colorbutton')
 for (i=0; i<colorButtons.length; i++) {
@@ -160,7 +180,7 @@ function eraseThings() {
         boxes[i].addEventListener('mousemove', (e) => {
             if(e.buttons == 1) {
              e.preventDefault();
-             e.target.style.backgroundColor = 'white';
+             e.target.style.backgroundColor = '#EEEEEE';
              e.target.style.filter = 'brightness(100%)';
             }
            });
@@ -168,30 +188,8 @@ function eraseThings() {
 }
 
 const eraseButton = document.createElement('button');
-eraseButton.textContent = 'Eraser';
-document.body.appendChild(eraseButton);
+eraseButton.textContent = 'Erase';
+buttonContainer.appendChild(eraseButton);
 eraseButton.addEventListener('click', eraseThings);
-
-// fix shading option
-
-function shadeThings() {
-  const boxes = document.querySelectorAll('.container div');
-    for (i=0; i<boxes.length; i++) {
-        boxes[i].addEventListener('mousemove', (e) => {
-            if(e.buttons == 1) {
-             e.target.style.filter = 'brightness(90%)';
-            }
-           });
-        boxes[i].addEventListener('click', (e) => {
-           e.target.style.filter = 'brightness(90%)';
-           });
-    }
-}
-
-const shadeButton = document.createElement('button');
-shadeButton.textContent = 'Shading';
-document.body.appendChild(shadeButton);
-shadeButton.addEventListener('click', shadeThings);
-
 
 // tidy up the code

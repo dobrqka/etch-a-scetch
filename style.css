@@ -7,10 +7,33 @@
 }
 
 .div-borders {
-    border: dotted black 1px;
+    border: dotted rgb(199, 184, 184) 1px;
 }
 
 body {
   background-color: #9CC0E7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-/* css to make it look cool */
+
+.buttons {
+    display: flex;
+}
+
+h1 {
+    color: white;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+button {
+    color: white;
+    background-color: rgb(201, 192, 192);
+    border-radius: 10px;
+    border-color: rgb(141, 136, 136);
+    box-shadow: 3px 3px 2px rgb(139, 137, 137);
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    flex: 1 1 0px;
+    gap: 3px;
+}
+/* css to make it look cooler */
