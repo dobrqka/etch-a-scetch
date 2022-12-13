@@ -105,7 +105,7 @@ buttonContainer.appendChild(clearButton);
 
 function clearDivs () {
     const theDivs = document.querySelectorAll('.container div');
-    theDivs.forEach(singleDiv => singleDiv.className = 'div-borders');
+    theDivs.forEach(singleDiv => singleDiv.classList.remove('black', 'blue', 'green', 'yellow', 'red', 'new-color'));
     theDivs.forEach(singleDiv => singleDiv.style.removeProperty('background-color'));
 }
 
@@ -144,13 +144,13 @@ function colorChoice(theColor) {
             if(e.buttons == 1) {
              e.preventDefault();
              e.target.style.removeProperty('background-color');
-             e.target.className = 'div-borders';
+             e.target.classList.remove('black', 'blue', 'green', 'yellow', 'red');
              e.target.classList.add(`${theColor}`);
             }
            });
          boxes[i].addEventListener('click', (e) => {
            e.target.style.removeProperty('background-color');
-           e.target.className = 'div-borders';
+           e.target.classList.remove('black', 'blue', 'green', 'yellow', 'red');
            e.target.classList.add(`${theColor}`);
            });
     }
@@ -205,12 +205,13 @@ function eraseThings() {
             if(e.buttons == 1) {
              e.preventDefault();
              e.target.style.removeProperty('background-color');
-             e.target.className = 'div-borders';
+             e.target.classList.remove('black', 'blue', 'green', 'yellow', 'red', 'new-color');
             }
            });
         boxes[i].addEventListener('click', (e) => {
              e.target.style.removeProperty('background-color');
-             e.target.className = 'div-borders'});
+             e.target.classList.remove('black', 'blue', 'green', 'yellow', 'red', 'new-color');
+            });
     }
 }
 
