@@ -223,4 +223,9 @@ eraseButton.style.backgroundPosition = 'center';
 buttonContainer.appendChild(eraseButton);
 eraseButton.addEventListener('click', eraseThings);
 
+let taralej = document.createElement('img');
+taralej.src = 'images/hedgehog.jpg';
+taralej.className = 'taralej';
+document.body.appendChild(taralej);
+
 // tidy up the code

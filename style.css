@@ -19,6 +19,7 @@ body {
 
 .buttons {
     display: flex;
+    gap: 2px;
 }
 
 h1 {
@@ -31,7 +32,9 @@ button {
     color: white;
     background-color: rgb(223, 213, 213);
     border-radius: 10px;
-    border-color: rgb(165, 165, 165);
+    /* border-color: rgb(165, 165, 165); */
+    border: none;
+    outline: none;
     box-shadow: 3px 3px 2px rgb(139, 137, 137);
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     font-size: 15px;
@@ -61,4 +64,11 @@ button {
     background-color: rgb(250, 250, 100);
 }
 
+.taralej {
+    flex: 1;
+    max-width: 60px;
+    align-self: end;
+    margin-right: 10px;
+    margin-top: auto;
+}
 /* css to make it look cooler */
