@@ -3,8 +3,8 @@
 const container = document.querySelector('.container');
 container.style.display = 'grid';
 container.style.boxSizing = 'border-box';
-container.style.width = '500px';
-container.style.height = '500px';
+container.style.width = '610px';
+container.style.height = '610px';
 container.style.backgroundColor = '#EEEEEE';
 
 // new div container for buttons
@@ -89,7 +89,6 @@ buttonContainer.appendChild(clearButton);
 function clearDivs () {
     const theDivs = document.querySelectorAll('.container div');
     theDivs.forEach(singleDiv => singleDiv.className = 'div-borders');
-    theDivs.forEach(singleDiv => singleDiv.style.backgroundColor = 'transparent');
 }
 
 clearButton.addEventListener('click', clearDivs)
@@ -100,7 +99,7 @@ function trippyColors() {
         boxes[i].addEventListener('mousemove', (e) => {
             if(e.buttons == 1) {
              e.preventDefault();
-             e.target.style.backgroundColor = 'rgb('+Math.round(Math.random()*255)+', '+Math.round(Math.random()*255)+', '+Math.round(Math.random()*255)+')';
+             e.target.style.backgroundColor = 'hsl('+Math.round(Math.random()*360)+', 100%, 75%)';
             }
            });
         boxes[i].addEventListener('click', (e) => {
@@ -111,7 +110,8 @@ function trippyColors() {
 }
 
 const trippyColor = document.createElement('button');
-trippyColor.textContent = 'Trippy';
+trippyColor.style.backgroundImage = 'url("images/trippy.png")';
+trippyColor.style.backgroundSize = '100% 100%';
 buttonContainer.appendChild(trippyColor);
 trippyColor.addEventListener('click', trippyColors);
 
@@ -123,46 +123,46 @@ function colorChoice(theColor) {
         boxes[i].addEventListener('mousemove', (e) => {
             if(e.buttons == 1) {
              e.preventDefault();
-             e.target.style.backgroundColor = `${theColor}`;
+             e.target.classList.add(`${theColor}`);
             }
            });
          boxes[i].addEventListener('click', (e) => {
-           e.target.style.backgroundColor = `${theColor}`;
+           e.target.classList.add(`${theColor}`);
            });
     }
 }
 
 const blackButton = document.createElement('button');
-blackButton.style.color = 'black';
-blackButton.style.backgroundColor = 'black';
+blackButton.style.color = 'rgb(114, 114, 114)';
+blackButton.style.backgroundColor = 'rgb(114, 114, 114)';
 blackButton.textContent = 'black';
 blackButton.className = 'colorbutton'
 buttonContainer.appendChild(blackButton);
 
 const blueButton = document.createElement('button');
-blueButton.style.color = 'blue';
-blueButton.style.backgroundColor = 'blue';
+blueButton.style.color = 'rgb(96, 96, 238)';
+blueButton.style.backgroundColor = 'rgb(96, 96, 238)';
 blueButton.textContent = 'blue';
 blueButton.className = 'colorbutton'
 buttonContainer.appendChild(blueButton);
 
 const greenButton = document.createElement('button');
 greenButton.textContent = 'green';
-greenButton.style.color = 'green';
-greenButton.style.backgroundColor = 'green';
+greenButton.style.color = 'rgb(66, 207, 66)';
+greenButton.style.backgroundColor = 'rgb(66, 207, 66)';
 greenButton.className = 'colorbutton'
 buttonContainer.appendChild(greenButton);
 
 const redButton = document.createElement('button');
 redButton.textContent = 'red';
-redButton.style.color = 'red';
-redButton.style.backgroundColor = 'red';
+redButton.style.color = 'rgb(228, 62, 62)';
+redButton.style.backgroundColor = 'rgb(228, 62, 62)';
 redButton.className = 'colorbutton'
 buttonContainer.appendChild(redButton);
 
 const yellowButton = document.createElement('button');
-yellowButton.style.color = 'yellow';
-yellowButton.style.backgroundColor = 'yellow';
+yellowButton.style.color = 'rgb(250, 250, 100)';
+yellowButton.style.backgroundColor = 'rgb(250, 250, 100)';
 yellowButton.textContent = 'yellow';
 yellowButton.className = 'colorbutton'
 buttonContainer.appendChild(yellowButton);
@@ -180,16 +180,18 @@ function eraseThings() {
         boxes[i].addEventListener('mousemove', (e) => {
             if(e.buttons == 1) {
              e.preventDefault();
-             e.target.style.backgroundColor = '#EEEEEE';
-             e.target.style.filter = 'brightness(100%)';
+             e.target.className = 'div-borders';
             }
            });
     }
 }
 
 const eraseButton = document.createElement('button');
-eraseButton.textContent = 'Erase';
+eraseButton.style.backgroundImage = 'url("images/eraser.png")';
+eraseButton.style.backgroundSize = '100% 100%';
 buttonContainer.appendChild(eraseButton);
 eraseButton.addEventListener('click', eraseThings);
 
+
+// FIX CLEAR BUTTON TO CLEAR THE TRIPPY COLORS
 // tidy up the code
