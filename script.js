@@ -41,6 +41,23 @@ function setGrid () {
     changeColor();
 }
 
+// default grid on start-up
+
+function startupGrid() {
+    for (i=0; i<(16**2); i++) {
+        container.style.gridTemplateColumns = `repeat(16, auto`;
+        const newDiv = document.createElement('div');
+        newDiv.style.height = 'auto';
+        newDiv.style.width = 'auto';
+        newDiv.style.boxSizing = 'border-box';
+        newDiv.classList.add('div-borders');
+        container.appendChild(newDiv);
+    }
+    changeColor();
+}
+
+startupGrid();
+
 // button to create a grid according to a side size selection
 
 const newGrid = document.createElement('button');
@@ -201,5 +218,4 @@ eraseButton.addEventListener('click', eraseThings);
 
 // FIX CLEAR BUTTON TO CLEAR THE TRIPPY COLORS
 
-// set up default grid on start-up
 // tidy up the code
