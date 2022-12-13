@@ -111,7 +111,9 @@ function trippyColors() {
 
 const trippyColor = document.createElement('button');
 trippyColor.style.backgroundImage = 'url("images/trippy.png")';
-trippyColor.style.backgroundSize = '100% 100%';
+trippyColor.style.backgroundSize = 'contain';
+trippyColor.style.backgroundRepeat = 'no-repeat';
+trippyColor.style.backgroundPosition = 'center';
 buttonContainer.appendChild(trippyColor);
 trippyColor.addEventListener('click', trippyColors);
 
@@ -188,7 +190,9 @@ function eraseThings() {
 
 const eraseButton = document.createElement('button');
 eraseButton.style.backgroundImage = 'url("images/eraser.png")';
-eraseButton.style.backgroundSize = '100% 100%';
+eraseButton.style.backgroundSize = 'contain';
+eraseButton.style.backgroundRepeat = 'no-repeat';
+eraseButton.style.backgroundPosition = 'center';
 buttonContainer.appendChild(eraseButton);
 eraseButton.addEventListener('click', eraseThings);
 
