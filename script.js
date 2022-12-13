@@ -223,7 +223,4 @@ eraseButton.style.backgroundPosition = 'center';
 buttonContainer.appendChild(eraseButton);
 eraseButton.addEventListener('click', eraseThings);
 
-
-// fix toggle grid button
-
 // tidy up the code
