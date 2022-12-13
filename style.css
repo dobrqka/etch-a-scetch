@@ -9,3 +9,8 @@
 .div-borders {
     border: dotted black 1px;
 }
+
+body {
+  background-color: #9CC0E7;
+}
+/* css to make it look cool */
