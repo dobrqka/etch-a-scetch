@@ -3,8 +3,8 @@
 const container = document.querySelector('.container');
 container.style.display = 'grid';
 container.style.boxSizing = 'border-box';
-container.style.width = '610px';
-container.style.height = '610px';
+container.style.width = '550px';
+container.style.height = '550px';
 container.style.backgroundColor = '#EEEEEE';
 
 // new div container for buttons
@@ -223,9 +223,9 @@ eraseButton.style.backgroundPosition = 'center';
 buttonContainer.appendChild(eraseButton);
 eraseButton.addEventListener('click', eraseThings);
 
-let taralej = document.createElement('img');
-taralej.src = 'images/hedgehog.jpg';
-taralej.className = 'taralej';
-document.body.appendChild(taralej);
+let chicken = document.createElement('img');
+chicken.src = 'images/chicken.png';
+chicken.className = 'chicken';
+document.body.appendChild(chicken);
 
 // tidy up the code
