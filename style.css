@@ -25,7 +25,8 @@ body {
 h1 {
     color: white;
     font-family: "Poppins", Arial, Helvetica, sans-serif;
-    font-size: 36px;
+    font-size: 32px;
+    margin: 10px auto 10px;
 }
 
 button {
@@ -67,8 +68,11 @@ button {
 .chicken {
     flex: 1;
     max-width: 60px;
-    align-self: end;
+    /* align-self: end;
     margin-right: 10px;
-    margin-top: auto;
+    margin-top: auto; */
+    position: absolute;
+    bottom: 10px;
+    right: 5px;
 }
 /* css to make it look cooler */
